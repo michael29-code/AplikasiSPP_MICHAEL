@@ -31,7 +31,8 @@ public class DataSiswa extends javax.swing.JFrame {
         try{
             conn = Koneksi.fungsiKoneksi();
             tampilkan_datasiswa();
-            tampilkan_kelas();            
+            tampilkan_kelas();
+            tampilkan_spp();            
             System.out.println("Terbuhung dengan Fungsi Koneksi");
         }catch(SQLException ex){
             System.out.println("Gagal Terhubung dengan fungsi Koneksi");
@@ -85,6 +86,21 @@ public class DataSiswa extends javax.swing.JFrame {
             }
         } catch (SQLException ex) {
             System.out.println("Gagal Menampilakn Combobox Kelas");
+//            Logger.getLogger(DataSiswa.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+    }
+    private void tampilkan_spp(){
+        String query = "SELECT * FROM spp";
+        try {
+            pst = conn.prepareStatement(query);
+            rs = pst.executeQuery();
+            
+            while(rs.next()){
+                combo_box_id_spp.addItem(rs.getString("id_spp"));
+            }
+        } catch (SQLException ex) {
+            System.out.println("Gagal Menampilakn Combobox Spp");
 //            Logger.getLogger(DataSiswa.class.getName()).log(Level.SEVERE, null, ex);
         }
        
@@ -200,8 +216,6 @@ public class DataSiswa extends javax.swing.JFrame {
         jLabel8.setText("ID SPP");
 
         jLabel9.setText("Cari Data");
-
-        combo_box_id_spp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
