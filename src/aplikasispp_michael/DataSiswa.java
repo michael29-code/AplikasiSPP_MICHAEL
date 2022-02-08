@@ -97,8 +97,8 @@ public class DataSiswa extends javax.swing.JFrame {
             rs = pst.executeQuery();
             
             while(rs.next()){
-//                combo_box_id_spp.addItem(rs.getString("id_spp"));
-                combo_box_id_spp.addItem(rs.getString("tahun"));
+                combo_box_id_spp.addItem(rs.getString("id_spp"));
+//                combo_box_id_spp.addItem(rs.getString("tahun"));
             }
         } catch (SQLException ex) {
             System.out.println("Gagal Menampilakn Combobox Spp");
