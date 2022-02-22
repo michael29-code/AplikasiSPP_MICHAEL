@@ -188,6 +188,11 @@ public class DataSiswa extends javax.swing.JFrame {
         });
 
         btnHapus.setText("Hapus");
+        btnHapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHapusActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Nama Pesdik");
 
@@ -431,6 +436,31 @@ public class DataSiswa extends javax.swing.JFrame {
         combo_box_id_spp.setSelectedItem("");
     }//GEN-LAST:event_kosongkanActionPerformed
 
+    private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
+        int konfirmasi = JOptionPane.showConfirmDialog(null,"Yakin anda ingin Menghapus?","",JOptionPane.OK_CANCEL_OPTION);
+       
+           
+            
+            try {
+                 if (konfirmasi == JOptionPane.OK_OPTION) {
+                String apus  = "DELETE FROM siswa where nisn=?";
+                pst = conn.prepareStatement(apus);
+                pst.setString(1,txt_nisn.getText());
+                
+                pst.execute();
+                JOptionPane.showMessageDialog(null,"Data Berhasil Dihapus");
+                tampilkan_datasiswa();
+                kosongkan();
+                }else{
+                konfirmasi = JOptionPane.CANCEL_OPTION;
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(DataSiswa.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
+        
+    }//GEN-LAST:event_btnHapusActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -491,4 +521,14 @@ public class DataSiswa extends javax.swing.JFrame {
     private javax.swing.JTextField txt_nisn;
     private javax.swing.JTextField txt_telepon;
     // End of variables declaration//GEN-END:variables
+
+    private void kosongkan() {
+        txt_nisn.setText("");
+        combo_box_id_spp.setSelectedItem("");
+        txt_nama_pesdik.setText("");
+        txt_alamat.setText("");
+        txt_telepon.setText("");
+        txt_hp.setText("");
+        combo_box_id_spp.setSelectedItem(""); //To change body of generated methods, choose Tools | Templates.
+    }
 }
