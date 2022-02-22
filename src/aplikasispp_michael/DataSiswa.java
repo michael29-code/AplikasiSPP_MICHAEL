@@ -138,6 +138,7 @@ public class DataSiswa extends javax.swing.JFrame {
         jTextField6 = new javax.swing.JTextField();
         combobox_kelas = new javax.swing.JComboBox<>();
         combo_box_id_spp = new javax.swing.JComboBox<>();
+        kosongkan = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -224,6 +225,13 @@ public class DataSiswa extends javax.swing.JFrame {
 
         jLabel9.setText("Cari Data");
 
+        kosongkan.setText("Reset");
+        kosongkan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kosongkanActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -266,7 +274,8 @@ public class DataSiswa extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnHapus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnTambah, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnUbah, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(btnUbah, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(kosongkan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(49, 49, 49))))
         );
         layout.setVerticalGroup(
@@ -310,7 +319,8 @@ public class DataSiswa extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(kosongkan))
                 .addGap(24, 24, 24)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29))
@@ -411,6 +421,16 @@ public class DataSiswa extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTable1MouseClicked
 
+    private void kosongkanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kosongkanActionPerformed
+        txt_nisn.setText("");
+        combo_box_id_spp.setSelectedItem("");
+        txt_nama_pesdik.setText("");
+        txt_alamat.setText("");
+        txt_telepon.setText("");
+        txt_hp.setText("");
+        combo_box_id_spp.setSelectedItem("");
+    }//GEN-LAST:event_kosongkanActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -464,6 +484,7 @@ public class DataSiswa extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.JButton kosongkan;
     private javax.swing.JTextField txt_alamat;
     private javax.swing.JTextField txt_hp;
     private javax.swing.JTextField txt_nama_pesdik;
