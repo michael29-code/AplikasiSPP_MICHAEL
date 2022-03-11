@@ -339,7 +339,32 @@ public class DataSiswa extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_nisnActionPerformed
 
     private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
-        // TODO add your handling code here:
+        if (!txt_nisn.getText().isEmpty() && !txt_nama_pesdik.getText().isEmpty() && !txt_alamat.getText().isEmpty() && !txt_telepon.getText().isEmpty() && !txt_hp.getText().isEmpty()) {
+            try {
+                String masukdata = "INSERT INTO siswa (nisn,id_kelas,nama_pesdik,alamat,telepon,hp,id_spp) value(?,?,?,?,?,?,?)";
+                
+                pst = conn.prepareStatement(masukdata);
+                
+                pst.setString(1, txt_nisn.getText());
+                String isiKelas = (String)combobox_kelas.getSelectedItem();
+                pst.setString(2, isiKelas);
+
+                pst.setString(3, txt_nama_pesdik.getText());
+                pst.setString(4, txt_alamat.getText());
+                pst.setString(5, txt_telepon.getText());
+                pst.setString(6, txt_hp.getText());
+
+                String isispp =(String)combo_box_id_spp.getSelectedItem();
+                pst.setString(7, isispp);
+                
+                pst.execute();
+                JOptionPane.showMessageDialog(null, "Data Berhasil Di input");
+                tampilkan_datasiswa();
+            } catch (SQLException ex) {
+                Logger.getLogger(DataSiswa.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+        }
     }//GEN-LAST:event_btnTambahActionPerformed
 
     private void btnUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahActionPerformed
